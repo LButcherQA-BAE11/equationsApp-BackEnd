@@ -103,4 +103,22 @@ function deleteEquation(id) {
 
 }
 
+document.getElementById("equationForm").addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const data = {
+        equationName: this.equationName.value,
+        equation: this.equation.value,
+        description: this.description.value,
+        subject: this.subject.value
+    };
+    document.getElementById("equationForm").reset();
+
+    axios.post(contextPath + "/createEquation", data)
+        .then(() => getEquations())
+        .catch(err => console.error(err))
+
+});
+
+
 getEquations();
