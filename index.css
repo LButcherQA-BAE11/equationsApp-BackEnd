@@ -28,8 +28,39 @@
       margin: 5px;
   }
 
+  #equationDesc{
+   
+    max-height: 100px;
+  }
+
   #form{
     margin: 10px;
   }
+
+  .modalDiv-bg{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left:0;
+      background-color:rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 300;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibilty 0s opacity 0,5s;
+
+  }
+
+
+  .bg-active{
+    visibility: visible;
+    opacity: 1;
+
+  }
+
+
 
   

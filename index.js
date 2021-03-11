@@ -2,6 +2,8 @@
 
 const contextPath = "http://localhost:8080";
 const output = document.getElementById("output");
+const modal = document.querySelector(".modalDiv-bg")
+let id;
 
 function getEquations() {
 
@@ -12,11 +14,10 @@ function getEquations() {
 
 
             const Equations = res.data;
-            console.log(res.data);
+
             Equations.forEach(equation => {
 
                 const newEquation = renderEquation(equation);
-                console.log("New equation: ", newEquation);
                 output.appendChild(newEquation);
 
             });
@@ -36,7 +37,6 @@ function renderEquation(equation) {
 
 
     const newEquation = document.createElement("div");
-    console.log(equation.subject.toLowerCase());
     if (equation.subject.toLowerCase() == "physics") {
         newEquation.className = "card text-white bg-primary mb-3";
     } else if (equation.subject.toLowerCase() == "maths") {
@@ -83,15 +83,23 @@ function renderEquation(equation) {
     });
     equationFooter.appendChild(deleteEquationButton);
 
+
     const updateEquationButton = document.createElement("button");
     updateEquationButton.id = "updateBtn"
     updateEquationButton.className = "btn btn-secondary";
     updateEquationButton.innerText = "Update";
     updateEquationButton.addEventListener('click', function () {
 
+        modal.classList.add('bg-active');
+        id = equation.id;
     });
+
     equationFooter.appendChild(updateEquationButton);
 
+    const closeBtn = document.querySelector(".closeBtn");
+    closeBtn.addEventListener('click', function () {
+        modal.classList.remove('bg-active');
+    });
 
     return newDiv;
 }
@@ -112,13 +120,45 @@ document.getElementById("equationForm").addEventListener('submit', function (eve
         description: this.description.value,
         subject: this.subject.value
     };
-    document.getElementById("equationForm").reset();
 
     axios.post(contextPath + "/createEquation", data)
-        .then(() => getEquations())
+        .then(() => {
+            this.reset();
+            this.equationName.focus();
+            getEquations();
+        }
+        )
         .catch(err => console.error(err))
 
 });
+
+
+
+
+document.getElementById("modalEquationForm").addEventListener('submit', function (event) {
+    event.preventDefault();
+
+
+    const data = {
+        equationName: this.modalEquationName.value,
+        equation: this.modalEquation.value,
+        description: this.modalDescription.value,
+        subject: this.modalSubject.value
+    };
+
+    localStorage.getItem("equationid")
+
+    axios.put(contextPath + "/update/" + id, data)
+        .then(() => {
+            this.reset();
+            modal.classList.remove('bg-active');
+            getEquations();
+        })
+        .catch(err => console.error(err))
+
+});
+
+
 
 
 getEquations();
