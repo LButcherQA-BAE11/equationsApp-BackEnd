@@ -23,6 +23,39 @@
     </section>
 
 
+    <section>
+        <div class="modalDiv-bg">
+            <div class="modalDiv">
+                <button class="closeBtn" id="modalCloseBtn">Close</button>
+                <form id="modalEquationForm" class="card text-white bg-secondary mb-3">
+                    <div class="card-header">
+
+                        <input name="modalSubject" id="modalEquationSubject" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+
+                            <input name="modalEquationFormula" id="modalEquation" class="form-control" min="0"
+                                placeholder="Equation">
+                        </div>
+                        <div class="card-text">
+                            <input name="modalName" id="modalEquationName" class="form-control mb-2" min="0"
+                                placeholder="Equation Name">
+
+                            <textarea name="modalDescription" id="modalEquationDesc" class="form-control mb-2" min="0"
+                                placeholder="Notes"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="modalUpdateBtn" type="submit" class="btn btn-primary">Update</button>
+
+                    </div>
+                </form>
+            </div>
+
+
+    </section>
+
     <section id="form" class="col-2">
         <div id="formDiv">
             <form id="equationForm" class="card text-white bg-secondary mb-3">
