@@ -38,7 +38,7 @@ function renderEquation(equation) {
     const newEquation = document.createElement("div");
     console.log(equation.subject.toLowerCase());
     if (equation.subject.toLowerCase() == "physics") {
-        newEquation.className = "card text-white bg-info mb-3";
+        newEquation.className = "card text-white bg-primary mb-3";
     } else if (equation.subject.toLowerCase() == "maths") {
         newEquation.className = "card text-white bg-success mb-3";
     } else if (equation.subject.toLowerCase() == "chemistry") {
@@ -78,7 +78,7 @@ function renderEquation(equation) {
     deleteEquationButton.className = "btn btn-primary";
     deleteEquationButton.innerText = "Delete";
     deleteEquationButton.addEventListener('click', function () {
-        //deleteEquation(equation.id);
+        deleteEquation(equation.id);
     });
     equationFooter.appendChild(deleteEquationButton);
 
@@ -92,6 +92,13 @@ function renderEquation(equation) {
 
 
     return newDiv;
+}
+
+function deleteEquation(id) {
+    axios.delete(contextPath + "/delete/" + id)
+        .then(() => getEquations())
+        .catch(err => console.error(err));
+
 }
 
 getEquations();
