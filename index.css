@@ -4,8 +4,32 @@
     overflow: hidden;
   }
 
-  .btn.btn-primary{
+  #deleteBtn{
       margin: 5px;
+      float: left;
       background-color: crimson;
       border-color: crimson;
   }
+
+  #updateBtn{
+      float: right;
+      margin: 5px;
+  }
+
+  #addBtn{
+    float: right;
+    margin: 5px;
+    background-color:rgb(48, 204, 28) ;
+    border-color:rgb(48, 204, 28);
+  }
+
+  #resetBtn{
+      float: left;
+      margin: 5px;
+  }
+
+  #form{
+    margin: 10px;
+  }
+
+  

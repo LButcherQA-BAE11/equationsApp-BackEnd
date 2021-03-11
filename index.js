@@ -75,6 +75,7 @@ function renderEquation(equation) {
     newEquation.appendChild(equationFooter);
 
     const deleteEquationButton = document.createElement("button");
+    deleteEquationButton.id = "deleteBtn"
     deleteEquationButton.className = "btn btn-primary";
     deleteEquationButton.innerText = "Delete";
     deleteEquationButton.addEventListener('click', function () {
@@ -83,6 +84,7 @@ function renderEquation(equation) {
     equationFooter.appendChild(deleteEquationButton);
 
     const updateEquationButton = document.createElement("button");
+    updateEquationButton.id = "updateBtn"
     updateEquationButton.className = "btn btn-secondary";
     updateEquationButton.innerText = "Update";
     updateEquationButton.addEventListener('click', function () {
@@ -100,5 +102,23 @@ function deleteEquation(id) {
         .catch(err => console.error(err));
 
 }
+
+document.getElementById("equationForm").addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const data = {
+        equationName: this.equationName.value,
+        equation: this.equation.value,
+        description: this.description.value,
+        subject: this.subject.value
+    };
+    document.getElementById("equationForm").reset();
+
+    axios.post(contextPath + "/createEquation", data)
+        .then(() => getEquations())
+        .catch(err => console.error(err))
+
+});
+
 
 getEquations();
