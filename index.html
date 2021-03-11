@@ -22,11 +22,40 @@
 
     </section>
 
-    <section>
+
+    <section id="form" class="col-2">
+        <div id="formDiv">
+            <form id="equationForm" class="card text-white bg-secondary mb-3">
+                <div class="card-header">
+                    <input name="subject" id="equationSubject" class="form-control" autofocus placeholder="Subject">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+
+                        <input name="equationFormula" id="equation" class="form-control" min="0" placeholder="Equation">
+                    </div>
+                    <div class="card-text">
+                        <input name="name" id="equationName" class="form-control mb-2" min="0"
+                            placeholder="Equation Name">
+
+                        <textarea name="description" id="equationDesc" class="form-control mb-2" min="0"
+                            placeholder="Notes"></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="resetBtn" type="reset" class="btn btn-primary">Reset</button>
+                    <button id="addBtn" type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="cardDisplay">
         <div id="output" class="m-2 card-group row row-cols-4 g-4">
 
         </div>
     </section>
+
 
 
 

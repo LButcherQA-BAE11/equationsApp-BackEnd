@@ -75,6 +75,7 @@ function renderEquation(equation) {
     newEquation.appendChild(equationFooter);
 
     const deleteEquationButton = document.createElement("button");
+    deleteEquationButton.id = "deleteBtn"
     deleteEquationButton.className = "btn btn-primary";
     deleteEquationButton.innerText = "Delete";
     deleteEquationButton.addEventListener('click', function () {
@@ -83,6 +84,7 @@ function renderEquation(equation) {
     equationFooter.appendChild(deleteEquationButton);
 
     const updateEquationButton = document.createElement("button");
+    updateEquationButton.id = "updateBtn"
     updateEquationButton.className = "btn btn-secondary";
     updateEquationButton.innerText = "Update";
     updateEquationButton.addEventListener('click', function () {
