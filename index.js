@@ -78,7 +78,7 @@ function renderEquation(equation) {
     deleteEquationButton.className = "btn btn-primary";
     deleteEquationButton.innerText = "Delete";
     deleteEquationButton.addEventListener('click', function () {
-        //deleteEquation(equation.id);
+        deleteEquation(equation.id);
     });
     equationFooter.appendChild(deleteEquationButton);
 

@@ -3,3 +3,9 @@
     background-color: rgb(25, 81, 236);
     overflow: hidden;
   }
+
+  .btn.btn-primary{
+      margin: 5px;
+      background-color: crimson;
+      border-color: crimson;
+  }
