@@ -10,6 +10,7 @@ body{
     background: #555;
     color: #f1f1f1;
     z-index: 5;
+    height: 100px;
   }
   
  
@@ -43,6 +44,11 @@ body{
    position: absolute;
    }
 
+   .alert{
+       left: 32.5%;
+      top: 30px;
+       display: inline;  
+   }
  
   /* ------------------------------------- */
 
@@ -52,7 +58,7 @@ body{
   #form{
       margin-top: 5px;
     
-    margin-left: 35%;
+    margin-left: 33%;
     width: 500px;
   }
   

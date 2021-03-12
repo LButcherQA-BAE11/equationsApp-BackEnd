@@ -16,10 +16,13 @@
 
 
     <div class="header" id="myHeader">
-        <i class="fas fa-atom"></i>
+        <div id="alertMessage">
+
+        </div>
+        <i id="atomIcon" class="fas fa-atom"></i>
         <h2>Equation Notes</h2>
         <div class="formDiv">
-            <form action="revision.html">
+            <form id="startRevisingBtnForm" action="revision.html">
                 <button type="submit" id="reviseBtn" class="btn btn-secondary">
                     Start Revising
                 </button>
@@ -29,7 +32,7 @@
     </div>
 
 
-    </section>
+
 
 
     <section>
@@ -39,17 +42,18 @@
                 <form id="modalEquationForm" class="card text-white bg-secondary mb-3">
                     <div class="card-header" id="modal-card-header">
                         <span id="modalCloseBtn">X</span>
-                        <input name="modalSubject" id="modalEquationSubject" class="form-control" placeholder="Subject">
+                        <input name="modalSubject" id="modalEquationSubject" class="form-control" placeholder="Subject"
+                            required>
                     </div>
                     <div class="card-body">
                         <div class="card-title">
 
                             <input name="modalEquationFormula" id="modalEquation" class="form-control" min="0"
-                                placeholder="Equation">
+                                placeholder="Equation" required>
                         </div>
                         <div class="card-text">
                             <input name="modalName" id="modalEquationName" class="form-control mb-2" min="0"
-                                placeholder="Equation Name">
+                                placeholder="Equation Name" required>
 
                             <textarea name="modalDescription" id="modalEquationDesc" class="form-control mb-2" min="0"
                                 placeholder="Notes"></textarea>

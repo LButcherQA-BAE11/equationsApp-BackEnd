@@ -91,9 +91,10 @@ function renderEquation(equation) {
     updateEquationButton.addEventListener('click', function () {
 
         modal.classList.add('bg-active');
+
         if (equation.subject != 'null') {
             document.getElementById("modalEquationSubject").value = equation.subject;
-        };
+        }
 
         if (equation.equation != 'null') {
             document.getElementById("modalEquation").value = equation.equation;
@@ -110,6 +111,8 @@ function renderEquation(equation) {
         id = equation.id;
     });
 
+
+
     equationFooter.appendChild(updateEquationButton);
 
     const closeBtn = document.getElementById("modalCloseBtn");
@@ -122,6 +125,9 @@ function renderEquation(equation) {
 }
 
 function deleteEquation(id) {
+
+    showAlert('Equation card deleted!', 'danger');
+
     axios.delete(contextPath + "/delete/" + id)
         .then(() => getEquations())
         .catch(err => console.error(err));
@@ -130,6 +136,8 @@ function deleteEquation(id) {
 
 document.getElementById("equationForm").addEventListener('submit', function (event) {
     event.preventDefault();
+
+    showAlert('Added!', 'success');
 
     const data = {
         equationName: this.equationName.value,
@@ -155,6 +163,7 @@ document.getElementById("equationForm").addEventListener('submit', function (eve
 document.getElementById("modalEquationForm").addEventListener('submit', function (event) {
     event.preventDefault();
 
+    showAlert('Updated equation card!', 'success');
 
     const data = {
         equationName: this.modalEquationName.value,
@@ -189,6 +198,20 @@ function stickyHeaderFunc() {
     } else {
         header.classList.remove("sticky");
     }
+}
+
+
+
+function showAlert(message, className) {
+    const alert = document.createElement("div");
+    alert.className = `alert alert-${className}`;
+    alert.appendChild(document.createTextNode(message));
+    const container = document.querySelector('#myHeader');
+    const icon = document.querySelector('#alertMessage')
+    container.insertBefore(alert, icon);
+    setTimeout(function () {
+        document.querySelector(".alert").remove()
+    }, 2000);
 }
 
 
