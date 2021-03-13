@@ -211,7 +211,7 @@ function showAlert(message, className) {
     container.insertBefore(alert, icon);
     setTimeout(function () {
         document.querySelector(".alert").remove()
-    }, 2000);
+    }, 500);
 }
 
 
