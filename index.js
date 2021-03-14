@@ -46,7 +46,7 @@ function renderEquation(equation) {
     } else {
         newEquation.className = "card bg-light mb-3";
     }
-    newEquation.style = "max-width: 18rem;";
+    newEquation.style = "max-width: 18rem;"
     newDiv.appendChild(newEquation);
 
     const equationHeader = document.createElement("h4");
@@ -67,7 +67,7 @@ function renderEquation(equation) {
     equationText.className = "card-text";
     equationText.innerHTML = equation.equationName;
     equationText.innerHTML += "</br>";
-    equationText.innerHTML += "Description: " + equation.description;
+    equationText.innerHTML += equation.description;
     equationBody.appendChild(equationText);
 
     const equationFooter = document.createElement("div");
@@ -91,13 +91,33 @@ function renderEquation(equation) {
     updateEquationButton.addEventListener('click', function () {
 
         modal.classList.add('bg-active');
+
+        if (equation.subject != 'null') {
+            document.getElementById("modalEquationSubject").value = equation.subject;
+        }
+
+        if (equation.equation != 'null') {
+            document.getElementById("modalEquation").value = equation.equation;
+        }
+        if (equation.equationName != 'null') {
+            document.getElementById("modalEquationName").value = equation.equationName;
+        }
+        if (equation.description != 'null') {
+            document.getElementById("modalEquationDesc").value = equation.description;
+        }
+
+
+
         id = equation.id;
     });
 
+
+
     equationFooter.appendChild(updateEquationButton);
 
-    const closeBtn = document.querySelector(".closeBtn");
+    const closeBtn = document.getElementById("modalCloseBtn");
     closeBtn.addEventListener('click', function () {
+
         modal.classList.remove('bg-active');
     });
 
@@ -105,6 +125,9 @@ function renderEquation(equation) {
 }
 
 function deleteEquation(id) {
+
+    showAlert('Equation card deleted!', 'danger');
+
     axios.delete(contextPath + "/delete/" + id)
         .then(() => getEquations())
         .catch(err => console.error(err));
@@ -113,6 +136,8 @@ function deleteEquation(id) {
 
 document.getElementById("equationForm").addEventListener('submit', function (event) {
     event.preventDefault();
+
+    showAlert('Added!', 'success');
 
     const data = {
         equationName: this.equationName.value,
@@ -138,6 +163,7 @@ document.getElementById("equationForm").addEventListener('submit', function (eve
 document.getElementById("modalEquationForm").addEventListener('submit', function (event) {
     event.preventDefault();
 
+    showAlert('Updated equation card!', 'success');
 
     const data = {
         equationName: this.modalEquationName.value,
@@ -157,6 +183,36 @@ document.getElementById("modalEquationForm").addEventListener('submit', function
         .catch(err => console.error(err))
 
 });
+
+
+window.onscroll = function () { stickyHeaderFunc() };
+
+
+var header = document.getElementById("myHeader");
+
+var sticky = header.offsetTop;
+
+function stickyHeaderFunc() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+}
+
+
+
+function showAlert(message, className) {
+    const alert = document.createElement("div");
+    alert.className = `alert alert-${className}`;
+    alert.appendChild(document.createTextNode(message));
+    const container = document.querySelector('#myHeader');
+    const icon = document.querySelector('#alertMessage')
+    container.insertBefore(alert, icon);
+    setTimeout(function () {
+        document.querySelector(".alert").remove()
+    }, 500);
+}
 
 
 

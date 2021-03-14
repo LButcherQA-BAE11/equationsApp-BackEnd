@@ -1,9 +1,123 @@
-.topnav {
-    position: relative;
-    background-color: rgb(25, 81, 236);
-    overflow: hidden;
+
+/*-----------------BODY---------------------*/
+body{
+    background-image: linear-gradient(to bottom left, rgb(197, 197, 197), rgb(204, 204, 204));
+}
+ /* -----------------TOP NAV----------------*/
+
+.header {
+    padding: 10px 16px;
+    background: #555;
+    color: #f1f1f1;
+    z-index: 5;
+    
+  }
+  
+ 
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  
+  .sticky + .content {
+    padding-top: 102px;
   }
 
+
+   .fas.fa-atom{
+    float:left;
+    margin-top: 12px;
+    margin-right: 5px;
+      
+       
+   }
+
+   .formDiv{
+  right: 20px;
+  top: 8px;
+   position: absolute;
+   }
+
+   .alert{
+       left: 32.5%;
+      top: 30px;
+       display: inline;  
+   }
+ 
+  /* ------------------------------------- */
+
+
+
+/* -----------------FORM ----------------*/
+  #form{
+      margin-top: 5px;
+    
+    margin-left: 33%;
+    width: 500px;
+  }
+  
+
+  /* ------------------------------------- */
+
+
+
+  /* ---------------MODAL----------------*/
+  .modalDiv-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color:rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibilty 0s opacity 0,5s;
+
+}
+.modalDiv{
+    width:25%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+    }
+
+    #modal-card-header{
+margin-top: 12px;
+
+    }
+
+#modalCloseBtn{
+    color: red;
+    cursor: pointer;
+    position: absolute;
+    font-weight: bold;
+    right:10px;
+    top:0.5px;
+}
+
+
+.bg-active{
+  visibility: visible;
+  opacity: 1;
+
+}
+/* ------------------------------------- */
+
+
+
+
+ /* -----------------EQUATION CARDS----------------*/
   #deleteBtn{
       margin: 5px;
       float: left;
@@ -32,34 +146,7 @@
    
     max-height: 100px;
   }
-
-  #form{
-    margin: 10px;
-  }
-
-  .modalDiv-bg{
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left:0;
-      background-color:rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 300;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibilty 0s opacity 0,5s;
-
-  }
-
-
-  .bg-active{
-    visibility: visible;
-    opacity: 1;
-
-  }
+/* ------------------------------------- */
 
 
 
