@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/d5e8686235.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <div class="header" id="myHeader">
+        <div id="alertMessage">
+
+        </div>
+        <i id="atomIcon" class="fas fa-atom"></i>
+        <h2>Equation Notes</h2>
+        <div class="formDiv">
+            <form id="startRevisingBtnForm" action="revision.html">
+                <button type="submit" id="reviseBtn" class="btn btn-secondary" style="background-color: forestgreen;">
+                    Start Revising
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+    <section>
+        <div class="modalDiv-bg">
+            <div class="modalDiv">
+
+                <form id="modalEquationForm" class="card text-white bg-secondary mb-3">
+                    <div class="card-header" id="modal-card-header">
+                        <span id="modalCloseBtn">X</span>
+                        <input name="modalSubject" id="modalEquationSubject" class="form-control" placeholder="Subject"
+                            required>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+
+                            <input name="modalEquationFormula" id="modalEquation" class="form-control" min="0"
+                                placeholder="Equation" required>
+                        </div>
+                        <div class="card-text">
+                            <input name="modalName" id="modalEquationName" class="form-control mb-2" min="0"
+                                placeholder="Equation Name" required>
+
+                            <textarea name="modalDescription" id="modalEquationDesc" class="form-control mb-2" min="0"
+                                placeholder="Notes"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+
+                        <button id="modalUpdateBtn" type="submit" class="btn btn-primary">Update</button>
+
+                    </div>
+                </form>
+            </div>
+
+
+    </section>
+
+    <section id="form">
+        <div id="formDiv">
+            <form id="equationForm" class="card text-white bg-secondary mb-3">
+                <div class="card-header">
+                    <input name="subject" id="equationSubject" class="form-control" autofocus placeholder="Subject"
+                        required>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+
+                        <input name="equationFormula" id="equation" class="form-control" min="0" placeholder="Equation"
+                            required>
+                    </div>
+                    <div class="card-text">
+                        <input name="name" id="equationName" class="form-control mb-2" min="0"
+                            placeholder="Equation Name" required>
+
+                        <textarea name="description" id="equationDesc" class="form-control mb-2" min="0"
+                            placeholder="Notes"></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="resetBtn" type="reset" class="btn btn-primary">Reset</button>
+                    <button id="addBtn" type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="cardDisplay">
+        <div id="output" class="m-2 card-group row row-cols-4 g-4">
+
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
